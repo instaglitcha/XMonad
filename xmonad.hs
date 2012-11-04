@@ -48,7 +48,7 @@ myBorderWidth = 2
 
 -- Define workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["main","web","chat","media","graph","browse", "text", "dev","mail"]
+myWorkspaces = ["main","web","chat","media","browse","text","dev","mail"]
 
 -- The layout that tiles all windows
 tiled = spacing 10 $ Tall nmaster delta ratio
@@ -73,7 +73,7 @@ full = fullscreen ||| tiled ||| Mirror tiled
 
 -- Define layouts to be used on workspaces
 myLayouts = avoidStruts $ onWorkspace "web" full $ onWorkspace "chat" floating $ onWorkspace "media" full $
-    onWorkspace "graph" full $ onWorkspace "browse" floating $ onWorkspace "text" full $
+    onWorkspace "browse" floating $ onWorkspace "text" full $
     onWorkspace "dev" full $ onWorkspace "mail" full $ def
 
 -- Define the workspace an application has to go to
@@ -86,8 +86,6 @@ myManageHook = composeAll . concat $
         , [ className =? c --> viewShift "chat"   | c <- myClassChatShifts ]
         -- Applications that go to media
         , [ className =? d --> viewShift "media"  | d <- myClassMediaShifts ]
-        -- Applications that go to graph
-        , [ className =? e --> viewShift "graph"  | e <- myClassGraphShifts ]
         -- Applications that go to browse
         , [ className =? f --> viewShift "browse" | f <- myClassBrowseShifts ]
         -- Applications that go to text
@@ -104,7 +102,6 @@ myManageHook = composeAll . concat $
         myClassWebShifts    = ["Firefox","Filezilla"]
         myClassChatShifts   = ["Pidgin"]
         myClassMediaShifts  = ["mplayer2"]
-        myClassGraphShifts  = ["Gimp"]
         myClassBrowseShifts = ["Nautilus","File-roller"]
         myClassTextShifts   = ["Zathura"]
         myClassDevShifts    = ["jetbrains-idea"]
