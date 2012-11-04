@@ -158,16 +158,12 @@ keysToAdd x =
         , ((modMask x .|. shiftMask, xK_KP_Subtract), sendMessage (IncMasterN (-1)))
         -- Remove borders
         , ((modMask x,  xK_d), withFocused toggleBorder)
-        -- Gnome system monitor
-        , (((modMask x .|. controlMask), xK_Delete), spawn "gnome-system-monitor")
         -- Rebind mod + q: custom restart xmonad script
         , ((modMask x, xK_q), spawn "killall conky dzen2 && xmonad --recompile && xmonad --restart")
         -- Rebind mod + shift + q: custom shutdown script
         , (((modMask x .|. shiftMask), xK_q), spawn "leave")
         -- Toggle struts
         , ((modMask x, xK_b), sendMessage ToggleStruts)
-        -- Take screenshot
-        , ((0, xK_Print), spawn "gnome-screenshot --interactive")
     ]
     ++
     [
