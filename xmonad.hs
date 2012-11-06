@@ -106,7 +106,7 @@ myManageHook = composeAll . concat $
         myClassTextShifts   = ["Zathura"]
         myClassDevShifts    = ["jetbrains-idea"]
         myClassMailShifts   = ["Thunderbird"]
-        myClassFloats       = ["Run.py", "feh", "Zenity","Pavucontrol"]
+        myClassFloats       = ["Run.py","feh","Gxmessage","Pavucontrol"]
 
 -- Define scratchpads
 myScratchPads :: NamedScratchpads
@@ -161,7 +161,7 @@ keysToAdd x =
         -- Rebind mod + q: custom restart xmonad script
         , ((modMask x, xK_q), spawn "killall conky dzen2 && xmonad --recompile && xmonad --restart")
         -- Rebind mod + shift + q: custom shutdown script
-        , (((modMask x .|. shiftMask), xK_q), spawn "leave")
+        , (((modMask x .|. shiftMask), xK_q), spawn "shutdown-dialog")
         -- Toggle struts
         , ((modMask x, xK_b), sendMessage ToggleStruts)
     ]
