@@ -141,11 +141,11 @@ keysToAdd x =
         -- Lock and turn off screen
         , (((modMask x .|. controlMask), xK_l), spawn "i3lock -d -c 000000")
         -- Toggle volume
-        , ((modMask x, xK_m), spawn "/home/bart/volume_pulse_audio.sh mute")
+        , ((modMask x, xK_m), spawn "pavolume mute")
         -- Decrease volume
-        , ((modMask x, xK_KP_Subtract), spawn "/home/bart/volume_pulse_audio.sh down")
+        , ((modMask x, xK_KP_Subtract), spawn "pavolume down")
         -- Increase volume
-        , ((modMask x, xK_KP_Add), spawn "/home/bart/volume_pulse_audio.sh up")
+        , ((modMask x, xK_KP_Add), spawn "pavolume up")
         -- Play / pause song in mpd
         , ((modMask x, xK_p), spawn "ncmpcpp toggle")
         -- Play previous song in mpd
